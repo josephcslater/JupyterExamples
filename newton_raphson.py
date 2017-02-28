@@ -95,7 +95,7 @@ def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
     return x, deltax
 
 
-def newton_raphson(function, x0 = 0, dx = 1e-10, eps = 1e-10):
+def newton_raphson(function, x0=0, dx=1e-10, eps=1e-10):
     """
     Solve for a root of a function using Newton Raphson's method.
 
