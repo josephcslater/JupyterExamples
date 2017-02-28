@@ -19,7 +19,9 @@ def myfunc(x):
 
     Examples
     --------
+
     Execution on a float
+
     >>> from newton_raphson import *
     >>> myfunc(3.0)
         11.0
@@ -38,6 +40,8 @@ def myfunc(x):
 def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
     """
     Solve for a root of a function using Newton Raphson's method.
+
+    Also plots the process.
 
     Parameters
     ----------
@@ -63,12 +67,12 @@ def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
     count = 0
     x = x0
     y = sp.linspace(1, 6, 200)
-    #ylarge = sp.linspace(-6, 4, 200)
-    #plt.figure(1)
-    #plt.plot(ylarge, globals()[function](ylarge))
-    #plt.grid('on')
-    #plt.show()
-    #plt.figure(2)
+#   ylarge = sp.linspace(-6, 4, 200)
+#   plt.figure(1)
+#   plt.plot(ylarge, globals()[function](ylarge))
+#   plt.grid('on')
+#   plt.show()
+#   plt.figure(2)
     plt.plot(y, globals()[function](y))
     plt.ylabel('$f(x)$')
     plt.xlabel('$x$')
@@ -80,10 +84,7 @@ def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
         count += 1
         plt.plot(sp.array([x, x]), sp.array([globals()[function](x), 0]), 'r')
         plt.plot(sp.array([x]), sp.array([globals()[function](x)]), 'r*')
-
-    #   f = eval(function + '(' + str(x) + ')')
         f = globals()[function](x)
-    #   f2 = eval(function + '('+ str(x+dx) + ')')
         f2 = globals()[function](x + dx)
         dfdx = (f2 - f) / dx
         deltax = -f / dfdx
@@ -91,6 +92,48 @@ def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
         xr = sp.linspace(x, x - deltax, 200)
         y = xr * dfdx - x * dfdx
         plt.plot(xr, y, 'y')  # Current point
+    return x, deltax
+
+
+def newton_raphson(function, x0 = 0, dx = 1e-10, eps = 1e-10):
+    """
+    Solve for a root of a function using Newton Raphson's method.
+
+    Parameters
+    ----------
+    function : string
+        String with name of function to be solved for *function(x) = 0*
+    x0       : float
+        Initial guess for *x* near *function(x) = 0*
+    dx       : float
+        Delta x used for finite difference calculation of slope
+    eps      : float
+        Absolute value of *function(x)* which is considered zero.
+
+    Examples
+    --------
+    >>> from newton_raphson import *
+    >>> def myfunc(x):
+    ...     return x**2+2*x-4
+    >>> function_name = 'myfunc'
+    >>> newton_raphson(function_name, x0=2)
+        (1.2360679775000656, -9.211829130239634e-07)
+    """
+    deltax = 2*eps
+    count = 0
+    x = x0
+    # loop until it converges, but no more than 50 times
+    while abs(deltax) > eps and count < 50:
+        count += 1 # I can add 1 to the variable *count*. Neat Python shortcut.
+        # This is a comment
+        # The next line is "Matlab style" and *bad*
+        #f = eval(function + '('+ str(x) + ')')
+        f = globals()[function](x)  #We explain later.
+        #f2 = eval(function + '('+ str(x+dx) + ')')
+        f2 = globals()[function](x+dx)
+        dfdx = (f2-f)/dx
+        deltax = -f/dfdx
+        x = x + deltax
     return x, deltax
 
 
@@ -103,7 +146,7 @@ if __name__ == "__main__":
     Success will return nothing.
 
     See the doctest section of the python manual.
-    https://docs.python.org/3.5/library/doctest.html
+    https://docs.python.org/3.6/library/doctest.html
     """
     import doctest
     doctest.testmod(optionflags=doctest.ELLIPSIS |
