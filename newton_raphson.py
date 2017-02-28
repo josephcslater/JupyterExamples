@@ -61,7 +61,7 @@ def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
     ...     return x**2+2*x-4
     >>> function_name = 'myfunc'
     >>> newton_raphson_plot(function_name, x0=2)
-        (1.2360679775000656, -9.211829130239634e-07)
+        (1.23606797..., ...)
     """
     deltax = 2 * eps
     count = 0
@@ -117,7 +117,7 @@ def newton_raphson(function, x0 = 0, dx = 1e-10, eps = 1e-10):
     ...     return x**2+2*x-4
     >>> function_name = 'myfunc'
     >>> newton_raphson(function_name, x0=2)
-        (1.2360679775000656, -9.211829130239634e-07)
+        (1.2360679..., ...)
     """
     deltax = 2*eps
     count = 0
