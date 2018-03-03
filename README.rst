@@ -1,8 +1,10 @@
 Jupyter Examples
 ================
 
-Examples of illustrative iPython (Jupyter) notebooks for those trying to learn
-Python.
+Illustrative examples iPython (Jupyter) notebooks for those trying to learn
+Python. (Also, notes to myself)
+
+To play with them *now* without any installations, you can try these all out on `mybinder.org <https://mybinder.org/v2/gh/josephcslater/iPythonExamples/master>`_.
 
 .. _installing_python:
 
@@ -11,7 +13,7 @@ _________________
 
 In order to be able to use the notebooks you need a working scientific python installation.
 
-The easiest path to this is to install Python via `Anaconda`_. **You must install** Python 3.5 or later for these notebooks to work. **Do note install Python 2.7.**  
+The easiest path to this is to install Python via `Anaconda`_. **You must install** Python 3.5 or later for these notebooks to work. **Do note install Python 2.7.**
 
 This proceeds as a normal install on your platform (Mac, Windows, Linux...).
 
