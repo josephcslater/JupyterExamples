@@ -1,4 +1,5 @@
-.. image:: https://mybinder.org/badge.svg :target: https://mybinder.org/v2/gh/josephcslater/iPythonExamples/master
+.. image:: https://mybinder.org/badge.svg 
+    :target: https://mybinder.org/v2/gh/josephcslater/iPythonExamples/master
 
 Jupyter Examples
 ================
