@@ -67,12 +67,6 @@ def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
     count = 0
     x = x0
     y = sp.linspace(1, 6, 200)
-#   ylarge = sp.linspace(-6, 4, 200)
-#   plt.figure(1)
-#   plt.plot(ylarge, globals()[function](ylarge))
-#   plt.grid('on')
-#   plt.show()
-#   plt.figure(2)
     plt.plot(y, globals()[function](y))
     plt.ylabel('$f(x)$')
     plt.xlabel('$x$')
@@ -135,19 +129,3 @@ def newton_raphson(function, x0=0, dx=1e-10, eps=1e-10):
         deltax = -f/dfdx
         x = x + deltax
     return x, deltax
-
-
-if __name__ == "__main__":
-    """ What this does.
-    python (name of this file)  -v
-    will test all of the examples in the help.
-
-    Leaving off -v will run the tests without any output.
-    Success will return nothing.
-
-    See the doctest section of the python manual.
-    https://docs.python.org/3.6/library/doctest.html
-    """
-    import doctest
-    doctest.testmod(optionflags=doctest.ELLIPSIS |
-                    doctest.NORMALIZE_WHITESPACE)
