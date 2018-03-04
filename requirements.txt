@@ -6,3 +6,5 @@ ipython
 control
 vibration_toolbox
 xarray
+xlrd
+PyQt5
