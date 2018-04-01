@@ -1,0 +1,59 @@
+digraph {
+    Aa [label = "Any chance the main repository
+ has been updated?"]
+    Ab [label = "git pull"]
+    A [label = "Edit and test your code.
+ Do your edits work?"]
+    B [label = "Did you make a new file?"] ;
+    Ba [label = "git add 'filename'
+ Want to store this
+ version locally?"]
+    Bb [label = "git commit -m 'Commit message'
+ Ready for others to see?"]
+    Bc [label = "git pull
+ Any conflicts?"]
+    Bd [label = "Edit files to deconflict, retest.
+        git commit -m 'Commit message'"]
+    C [label = "git push origin master
+or git request-pull
+ Done editing?"]
+    Ca [label = "Was that a big mistake?"]
+    Cb [label = "Really bad?"]
+    D [label = "Let's restore the previous version.
+git checkout -- 'filename'"]
+    Db [label = "Let's go back to the main repository
+git fetch origin
+        git reset --hard origin/master
+        Or to your last commit
+        git reset --hard '###'
+        where '###' comes from
+        git log"]
+    #E [label = "Let's restore the previous version.
+git checkout -- 'filename'"]
+    #F [label = ""]
+    A->B [label = "Yes"]
+    B->Ba [label = "Yes"]
+    B->Bb [label = "No"]
+    Aa->A [label = "No"]
+    Aa->Ab [label = "Yes"]
+    Ab->A 
+    A->A [label = "No"]
+    Ba->Bb [label = "Yes"]
+    Ba->A [label = "No"]
+    Bb->Bc [label = "Yes"]
+    Bc->Bd [label = "Yes"]
+    Bb->Aa [label = "No"]
+    Bd->C
+    Bc->C [label ="No"]
+    #B:ne->A:se [label = "No"]
+    C->Aa [label = "No"]
+    C->Ca [label = "Yes"]
+    Ca->Cb [label = "Yes"]
+    Cb->Db [label = "Yes"]
+    Cb->D [label = "No"]
+    Ca->Aa[label = "No"]
+    D->Aa 
+    Db->Aa
+    #E->Aa [label = "No"]
+}
+        
