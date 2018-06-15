@@ -28,7 +28,7 @@ def myfunc(x):
 
     Execution on a SciPy array_like
 
-    >>> a = sp.linspace(0,10,10)
+    >>> a = np.linspace(0,10,10)
     >>> myfunc(a)
         array([  -4.        ,   -0.54320988,    5.38271605,   13.77777778,
              24.64197531,   37.97530864,   53.77777778,   72.04938272,
@@ -66,24 +66,24 @@ def newton_raphson_plot(function, x0=0, dx=1e-10, eps=1e-10):
     deltax = 2 * eps
     count = 0
     x = x0
-    y = sp.linspace(1, 6, 200)
+    y = np.linspace(1, 6, 200)
     plt.plot(y, globals()[function](y))
     plt.ylabel('$f(x)$')
     plt.xlabel('$x$')
     plt.title('Newton Raphson search for solution to $f(x)=0$.')
-    plt.grid('on')
-    plt.plot(sp.array([x0, x0]), sp.array([globals()[function](x0), 0]), 'r')
-    plt.plot(sp.array([x0]), sp.array([globals()[function](x0)]), 'r*')
+    plt.grid(True)
+    plt.plot(np.array([x0, x0]), np.array([globals()[function](x0), 0]), 'r')
+    plt.plot(np.array([x0]), np.array([globals()[function](x0)]), 'r*')
     while abs(globals()[function](x)) > eps and count < 50:
         count += 1
-        plt.plot(sp.array([x, x]), sp.array([globals()[function](x), 0]), 'r')
-        plt.plot(sp.array([x]), sp.array([globals()[function](x)]), 'r*')
+        plt.plot(np.array([x, x]), np.array([globals()[function](x), 0]), 'r')
+        plt.plot(np.array([x]), np.array([globals()[function](x)]), 'r*')
         f = globals()[function](x)
         f2 = globals()[function](x + dx)
         dfdx = (f2 - f) / dx
         deltax = -f / dfdx
         x = x + deltax
-        xr = sp.linspace(x, x - deltax, 200)
+        xr = np.linspace(x, x - deltax, 200)
         y = xr * dfdx - x * dfdx
         plt.plot(xr, y, 'y')  # Current point
     return x, deltax
