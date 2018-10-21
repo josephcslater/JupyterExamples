@@ -47,3 +47,6 @@ It's all in the GUI from here. You just need to play around a bit.
 
 Your feedback is appreciated. Please also look
 at other demonstrations on `my blog <http:josephcslater.github.io>`_.
+
+
+Like this module, `buy me a coffee! <https://www.buymeacoffee.com/s6BCSuEiU>`_
