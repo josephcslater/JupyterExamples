@@ -12,6 +12,8 @@ Python. (Also, notes to myself)
 
 To play with them *now* without any installations, you can try these all out on `mybinder.org <https://mybinder.org/v2/gh/josephcslater/iPythonExamples/master>`_.
 
+Please also see my `Introduction to Python`_ short course- it presumes you can already program in some other language, more likely Matlab. It provides a fast blow-through of the "gist" of python. 
+
 .. _installing_python:
 
 Installing Python
@@ -44,6 +46,7 @@ It's all in the GUI from here. You just need to play around a bit.
 .. _github: http://www.github.com
 .. _Anaconda: http://continuum.io/downloads
 .. _Jupyter: http://www.jupyter.org
+.. _`Introduction to Python`: https://github.com/josephcslater/Introduction_to_Python
 
 Your feedback is appreciated. Please also look
 at other demonstrations on `my blog <http:josephcslater.github.io>`_.
