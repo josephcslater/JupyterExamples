@@ -1,0 +1,116 @@
+digraph {
+    
+    
+    { rank = same;
+    Y1S1 [label ="Year 1, Semester 1", shape = none];
+    CHM1210 [label = "CHM 1210\n General Chemistry I"] ;
+    EGR1010 [label = "EGR 1010\n Intr Mathematics for Engineers"] ;
+    ENG1100 [label = "ENG 1100\n Composition I"] ;
+    ME1040 [label ="ME 1040\n Engineering Design and Solid Modeling"];
+  }
+        
+    { rank = same;
+    Y1S2 [label ="Year 1, Semester 2", shape = none];
+    MTH2300 [label = "MTH 2300\n Calculus I"] ;
+    PHY2400 [label = "PHY 2400\n General Physics I"] ;
+    ME1020 [label ="ME 1020\n Engineering Programming With Matlab"]
+  }
+    
+    { rank = same;
+     Y2S1 [label ="Year 2, Semester 1", shape = none];
+    ME2120 [label = "ME 2120\n Statics\n C or better required"] ;
+    ME2700 [label = "ME 2700\n Structures and Properties of Materials"] ;
+    MTH2310 [label = "MTH 2310\n Calculus II"] ;
+    PHY2410 [label = "PHY 2410\n General Physics II"] ;
+    }
+    
+    { rank = same;
+    Y2S2 [label ="Year 2, Semester 2", shape = none];
+    ME2210 [label = "ME 2210\n Dynamics"] ;
+    EE2010  [label = "EE 2010\n Circuit Analysis I"];
+    ME3310 [label = "ME 3310\n Thermodynamics\n C or better required"] ;
+    MTH2350 [label = "MTH 2350\n DE &MA"] ;
+    EGR3350 [label = "EGR 3350\n Technical Comm for ENGG"] ;
+    }
+    
+    { rank = same;
+    Y3S1 [label ="Year 3, Semester 1", shape = none] ;
+    ME3120 [label = "ME 3120\n Mechanics of Materials"] ;
+    ME3600  [label = "ME 3600\n Exp. Meas. &  Instru."];
+    ME3350 [label = "ME 3350\n Fluid Dynamics"] ;
+    MTH2320 [label = "MTH 2320\n Calculus III"] ;
+    }
+
+
+    { rank = same;
+    Y3S2 [label ="Year 3, Semester 2", shape = none];
+    ME4140 [label = "ME 4140\n Mechanical Design"] ;
+    ME3210  [label = "ME 3210\n System Dynamics"];
+    ME3360 [label = "ME 3360\n Heat Transfer"] ;
+    "Technical Elective 1";
+    }
+    
+    { rank = same;
+    Y4S1 [label ="Year 4, Semester 1", shape = none];
+    ME4910 [label = "ME 4910\n Capstone Design I"] ;
+    "Senior Lab";
+    "Technical Elective 2";
+    "Track Course 1";
+    "Track Course 2;"
+    }
+    
+    { rank = same;
+     Y4S2 [label ="Year 4, Semester 2", shape = none] ;
+    ME4920 [label = "ME 4920\n Capstone Design II"] ;
+    "Technical Elective 3";
+    "Track Course 3"
+    }
+    
+    node [shape = box];
+    {node [shape=box, fontsize=18, constraint=true];/*the time-line graph*/
+     Y1S1-> 
+     Y1S2-> 
+     Y2S1-> 
+     Y2S2->
+     Y3S1-> 
+     Y3S2-> 
+     Y4S1-> 
+     Y4S2}
+
+//Year 1, Semester 2
+EGR1010->ME1020;
+EGR1010->PHY2400;
+
+//Year 2, Semester 1    
+{ME1040, EGR1010, PHY2400}->ME2120;
+{CHM1210, PHY2400} ->ME2700;    
+MTH2300->MTH2310;
+PHY2400->PHY2410;
+MTH2310->PHY2410 [label="or corequisite"];
+
+//Year 2, Semester 2   
+{ENG1100, MTH2310, PHY2410}->EE2010;    
+{ME2120, ME1020}->ME2210;
+{EGR1010, PHY2400}->ME3310;
+MTH2310->MTH2350;
+ENG1100->EGR3350;
+    
+//Year 3, Semester 1    
+{MTH2310}->MTH2320;
+{ME1020, ME2120}->ME3120;
+{EE2010, EGR3350, ME2120, MTH2350}->ME3600;
+{ME2210, ME3310}->ME3350;
+    
+//Year 3, Semester 2    
+{ME3350, MTH2350}->ME3360;
+{EE2010, ME2210, ME3120, ME3350, MTH2350}->ME3210;
+{ME2700, ME3120}->ME4140;
+    
+//Year 4, Semester 1    
+{ME1040, ME3210, ME3310, ME3360, ME3600, ME4140, EGR3350, MTH2320, MTH2350, PHY2410}->ME4910;
+ME3600->"Senior Lab" [ label = "See selection\n specific\n requirements"]
+    
+//Year 4, Semester 2    
+ME4910->ME4920;
+
+}
