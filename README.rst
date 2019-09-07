@@ -10,7 +10,7 @@ Jupyter Examples
 Illustrative examples iPython (Jupyter) notebooks for those trying to learn
 Python. (Also, notes to myself)
 
-To play with them *now* without any installations, you can try these all out on `mybinder.org <https://mybinder.org/v2/gh/josephcslater/iPythonExamples/master>`_.
+To play with them *now* without any installations, you can try these all out on `mybinder.org <https://mybinder.org/v2/gh/josephcslater/JupyterExamples/master>`_.
 
 Please also see my `Introduction to Python`_ short course- it presumes you can already program in some other language, more likely Matlab. It provides a fast blow-through of the "gist" of python. 
 
