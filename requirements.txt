@@ -1,11 +1,10 @@
 numpy
 scipy
 matplotlib
-sphinx
-ipython
-control
+# ipython
+# control
 vibration_toolbox
 xarray
 xlrd
-PyQt5
-fortran-magic
+# PyQt5
+# fortran-magic
