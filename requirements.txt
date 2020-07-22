@@ -6,5 +6,6 @@ matplotlib
 vibration_toolbox
 xarray
 xlrd
+sympy
 # PyQt5
 # fortran-magic
